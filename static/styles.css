@@ -32,3 +32,17 @@ main {
   height: 100vh;
   padding: 2% 10%;
 }
+
+@media screen and (max-width: 700px) {
+  body {
+    padding-left: 85px;
+  }
+
+  nav {
+    height: 95vh;
+  }
+
+  main {
+    width: 2%;
+  }
+}
