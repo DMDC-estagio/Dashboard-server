@@ -1,0 +1,69 @@
+nav div#navigator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  border-top: 1px solid rgba(255, 255, 255, 0.10);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+nav span#logo {
+  font-size: 64px;
+  color: rgb(0, 0, 0);
+}
+
+nav span.button {
+  font-size: 64px;
+}
+
+
+nav div#navigator a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  text-decoration: none;
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.25);
+  border-top: 1px solid rgba(255, 255, 255, 0.10);
+  width: 100%;
+  box-sizing: border-box;
+  height: 110px;
+  padding: 10px;
+  transition: 0.5s;
+}
+
+nav div#navigator a.selected {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+nav div#navigator a:hover {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+nav div#navigator a:first-child {
+  border-top: none;
+}
+
+nav div#navigator a:only-child {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.material-symbols-outlined {
+  font-size: 38px;
+}
+
+nav a span.button{
+  color: rgb(0, 0, 0);
+  font-size: 36px;
+
+}
+
+nav a {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

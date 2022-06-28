@@ -1,0 +1,30 @@
+
+{% macro mesure_block(mesure_block_title, mesure_block_value, mesure_block_decimal, mesure_block_symbol, max) -%}
+
+  <div class="mesure-block">
+    <header>
+    {% if max == 'true' %}
+      <svg width="21" height="21" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M11 1L1 13H10L9 21L19 9H10L11 1Z" stroke="#336380" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    {% else %}
+
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g clip-path="url(#clip0_2_89)">
+      <path d="M10 0L0 12H9L8 20L18 8H9L10 0Z" stroke="#336380" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M19 20V12" stroke="#336380" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M15 16L19 12L23 16" stroke="#336380" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      <defs>
+      <clipPath id="clip0_2_89">
+      <rect width="24" height="24" fill="white"/>
+      </clipPath>
+      </defs>
+      </svg>
+    {% endif %}
+      <span>{{ mesure_block_title }}</span>
+    </header>
+    <span><span class="value">{{ mesure_block_value }}</span><span class="decimal">.{{ mesure_block_decimal }}</span><span class="symbol">{{ mesure_block_symbol }}</span>
+  </div>
+
+{%- endmacro %}

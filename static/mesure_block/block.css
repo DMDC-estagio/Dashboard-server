@@ -1,0 +1,104 @@
+div#mesure-blocks {
+  margin: 0 auto 30px auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 50px;
+  color: #1F3C4D;
+}
+
+@media screen and (max-width: 1150px){
+  div#mesure-blocks {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 1090px) {
+  div#mesure-blocks {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+div.mesure-block {
+  height: 225px;
+  width: 225px;
+
+  display: flex;
+  flex-direction: column;
+
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+}
+
+div.mesure-block header {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  font-size: 22px;
+  color: #336380;
+}
+
+div.mesure-block header span {
+  text-align: center;
+  font-weight: normal;
+}
+
+div.mesure-block .value {
+  font-size: 96px;
+}
+
+div.mesure-block .decimal {
+  font-size: 48px;
+}
+
+div.mesure-block .symbol {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 700px) {
+  div#mesure-blocks {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  div.mesure-block {
+    height: 180px;
+    width: 180px;
+
+    padding: 10px;
+
+
+    border-radius: 10px;
+  }
+
+  div.mesure-block header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+  }
+
+  div.mesure-block header span {
+    text-align: center;
+    font-weight: normal;
+  }
+
+  div.mesure-block .value {
+    font-size: 72px;
+  }
+
+  div.mesure-block .decimal {
+    font-size: 24px;
+  }
+
+  div.mesure-block .symbol {
+    font-size: 18px;
+  }
+
+}
