@@ -22,6 +22,10 @@ data = [{'time': datetime.fromtimestamp(953852555).strftime('%Y-%m-%d %H:%M:%S')
 def index():
     return render_template('./dashboard/index.html', data = {'title': 'Início', 'teste': data})
 
-@app.route('/chart_data')
-def chart_data():
+@app.route('/chart_data/voltage')
+def chart_data_voltage():
+    return jsonify(data)
+
+@app.route('/chart_data/amperage')
+def chart_data_amperage():
     return jsonify(data)
