@@ -7,7 +7,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///teste.db'
-app. config["CACHE_TYPE"] = "null"
+app.config["CACHE_TYPE"] = "null"
 
 template_dir = os.path.abspath('./templates')
 static_dir = os.path.abspath('./static')
