@@ -24,8 +24,8 @@ def index():
 
 @app.route('/chart_data/voltage')
 def chart_data_voltage():
-    return jsonify(data)
+    return jsonify([{'time': datetime.fromtimestamp(953852555).strftime('%Y-%m-%d %H:%M:%S'), 'value': random.randint(-10,200)}, {'time': datetime.fromtimestamp(1816129816).strftime('%Y-%m-%d %H:%M:%S'), 'value': random.randint(-10,200)}, {'time': datetime.fromtimestamp(1200396315).strftime('%Y-%m-%d %H:%M:%S'), 'value': random.randint(-10,200)}, {'time': datetime.fromtimestamp(1180529430).strftime('%Y-%m-%d %H:%M:%S'), 'value': random.randint(-10,200)}, {'time': datetime.fromtimestamp(1252327542).strftime('%Y-%m-%d %H:%M:%S'), 'value': random.randint(-10,200)}])
 
 @app.route('/chart_data/amperage')
 def chart_data_amperage():
-    return jsonify(data)
+    return jsonify([{'time': datetime.fromtimestamp(953852555).strftime('%Y-%m-%d %H:%M:%S'), 'value': random.randint(-10,200)}, {'time': datetime.fromtimestamp(1816129816).strftime('%Y-%m-%d %H:%M:%S'), 'value': random.randint(-10,200)}, {'time': datetime.fromtimestamp(1200396315).strftime('%Y-%m-%d %H:%M:%S'), 'value': random.randint(-10,200)}, {'time': datetime.fromtimestamp(1180529430).strftime('%Y-%m-%d %H:%M:%S'), 'value': random.randint(-10,200)}, {'time': datetime.fromtimestamp(1252327542).strftime('%Y-%m-%d %H:%M:%S'), 'value': random.randint(-10,200)}])
