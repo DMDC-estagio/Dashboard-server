@@ -8,15 +8,15 @@
 
 {% block content %}
 <div id="mesure-blocks">
-  {{ mesure_block('Tensão média', '01', '2', 'V') }}
-  {{ mesure_block('Tensão máxima', '01', '2', 'V', 'true') }}
-  {{ mesure_block('Corrente média', '01', '2', 'A') }}
-  {{ mesure_block('Corrente máxima', '01', '2', 'A', 'true') }}
+  {{ mesure_block('Tensão média', data.tensao_med[0], data.tensao_med[1], 'V') }}
+  {{ mesure_block('Tensão máxima', data.tensao_max[0], data.tensao_max[1], 'V', 'true') }}
+  {{ mesure_block('Corrente média', data.corrente_med[0], data.corrente_med[1], 'A') }}
+  {{ mesure_block('Corrente máxima', data.corrente_max[0], data.corrente_max[1], 'A', 'true') }}
 
 </div>
 <canvas id="canvas"></canvas>
 
-<span id="chart-data" hidden> {{ data.teste }} </span>
+<span id="chart-data" hidden> {{ data.tensao }} </span>
 {% endblock %}
 
 {% block scripts %}
@@ -33,12 +33,26 @@
             data: {
                 labels: [],
                 datasets: [{
-                    label: "Random Dataset",
+                    label: "Máxima",
                     backgroundColor: 'rgb(255, 99, 132)',
                     borderColor: 'rgb(255, 99, 132)',
                     data: [],
                     fill: false,
-                }],
+                },{
+                    label: "Mínima",
+                    backgroundColor: 'rgb(99, 255, 132)',
+                    borderColor: 'rgb(99, 255, 132)',
+                    data: [],
+                    fill: false,
+                },
+                {
+                    label: "Média",
+                    backgroundColor: 'rgb(132, 99, 255)',
+                    borderColor: 'rgb(132, 99, 255)',
+                    data: [],
+                    fill: false,
+                }
+            ],
             },
             options: {
                 responsive: true,
@@ -82,7 +96,9 @@
         chartData.forEach((element) => {
           console.log(element)
           config.data.labels.push(element.time);
-          config.data.datasets[0].data.push(element.value);
+          config.data.datasets[0].data.push(element.max);
+          config.data.datasets[1].data.push(element.min);
+          config.data.datasets[2].data.push(element.med);
           lineChart.update();
         });
     });
