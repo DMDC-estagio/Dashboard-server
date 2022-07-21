@@ -1,0 +1,30 @@
+{% extends "/index.html" %}
+
+{% from "dashboard/log.jinja" import log_block with context %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ url_for('static', filename='./measure_log/log.css') }}">
+{% endblock %}
+
+{% block content %}
+<h1>Logs do sistema.</h1>
+
+<div class="measure-log">
+  <h3 id="list_header">Data de medição</h3>
+  <ul>
+    <li>MAX</li>
+    <li>MED</li>
+    <li>MIN</li>
+  </ul>
+  <ul>
+    <li>MAX</li>
+    <li>MED</li>
+    <li>MIN</li>
+  </ul>
+</div>
+{% for log in data.logs %}
+  {{ log_block(log) }}
+{% endfor %}
+
+{% endblock %}
+
