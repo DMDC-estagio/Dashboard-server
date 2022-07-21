@@ -41,7 +41,7 @@ def index():
             max_current = item.currentMAx
         med_voltage += item.voltageMed
         med_current += item.currentMed
-        print(item.date.replace(tzinfo=timezone('America/Sao_Paulo')), item.date)
+        # print(item.date.replace(tzinfo=timezone('America/Sao_Paulo')), item.date)
     med_voltage /= len(measure_list)
     med_current /= len(measure_list)
 
@@ -53,6 +53,10 @@ def logs():
     response = [x.__dict__ for x in measure_list]
     for item in response: item['date'] = item['date'].replace(tzinfo=timezone('America/Sao_Paulo')).strftime('%Y-%m-%d %H:%M:%S')
     return render_template('./dashboard/logs.html', data = {'title': 'Logs', 'logs': response})
+
+@app.route('/grupo')
+def group():
+    return render_template('./dashboard/group.html', data = {'title': 'Grupo'})
 
 @app.route('/chart_data/', methods=['POST'])
 def chart_data():
