@@ -1,0 +1,12 @@
+
+{% macro group_integrator(img, name, bio) -%}
+
+  <div class="group-integrator">
+    <img src={{ img }} alt="integrator image">
+    <div>
+      <h2>{{ name }}</h2>
+      <p>{{ bio }}</p>
+    </div>
+  </div>
+
+{%- endmacro %}
