@@ -1,6 +1,5 @@
 .measure-log {
   overflow-y: auto;
-  overflow-x: hidden;
   padding: 0;
   margin: 0;
   font-size: 12px;
@@ -24,6 +23,10 @@
   width: 126.328px;
 }
 
+.measure-log #list_header .measure_header {
+  overflow-y: hidden;
+}
+
 .measure-log ul {
   list-style: none;
   padding: 0;
@@ -41,3 +44,23 @@
   font-size: 13px;
   color: #336380;
 }
+
+@media screen and (max-width: 700px) {
+  .measure-log ul {
+    flex-direction: column;
+  }
+
+  .measure-log ul li {
+    padding: auto;
+    margin: auto;
+  }
+
+  .measure-log h3 {
+    width: 100px;
+  }
+
+  .measure-log #list_header {
+    width: 100px;
+  }
+}
+
