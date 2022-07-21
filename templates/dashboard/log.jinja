@@ -1,0 +1,18 @@
+
+{% macro log_block(measure) -%}
+
+  <div class="measure-log">
+    <h3>{{ measure.date }}</h3>
+    <ul>
+      <li>{{ measure.voltageMAx }}V</li>
+      <li>{{ measure.voltageMed }}V</li>
+      <li>{{ measure.voltageMin }}V</li>
+    </ul>
+    <ul>
+      <li>{{ measure.currentMAx }}A</li>
+      <li>{{ measure.currentMed }}A</li>
+      <li>{{ measure.currentMin }}A</li>
+    </ul>
+  </div>
+
+{%- endmacro %}
