@@ -1,6 +1,7 @@
 import random
 import os
 from datetime import datetime
+from pytz import timezone
 
 from flask import Flask, render_template, jsonify, request
 from flask_sqlalchemy import SQLAlchemy
@@ -33,17 +34,25 @@ def index():
     max_voltage, max_current = 0, 0
     med_voltage, med_current = 0, 0
     for item in measure_list:
-        response.append({'time': item.date.strftime('%Y-%m-%d %H:%M:%S'), 'med': item.voltageMed, 'min': item.voltageMin, 'max': item.voltageMAx})
+        response.append({'time': item.date.replace(tzinfo=timezone('America/Sao_Paulo')).strftime('%Y-%m-%d %H:%M:%S'), 'med': item.voltageMed, 'min': item.voltageMin, 'max': item.voltageMAx})
         if item.voltageMAx > max_voltage:
             max_voltage = item.voltageMAx
         if max_current < item.currentMAx:
             max_current = item.currentMAx
         med_voltage += item.voltageMed
         med_current += item.currentMed
+        print(item.date.replace(tzinfo=timezone('America/Sao_Paulo')), item.date)
     med_voltage /= len(measure_list)
     med_current /= len(measure_list)
 
     return render_template('./dashboard/index.html', data = {'title': 'Início', 'tensao': response, 'tensao_max': f"{round(max_voltage,1)}".split('.'), 'corrente_max': f"{round(max_current,1)}".split('.'), 'tensao_med' : f"{round(med_voltage,1)}".split("."), "corrente_med" : f"{round(med_current,1)}".split(".")})
+
+@app.route('/logs')
+def logs():
+    measure_list = Measure.query.all()
+    response = [x.__dict__ for x in measure_list]
+    for item in response: item['date'] = item['date'].replace(tzinfo=timezone('America/Sao_Paulo')).strftime('%Y-%m-%d %H:%M:%S')
+    return render_template('./dashboard/logs.html', data = {'title': 'Logs', 'logs': response})
 
 @app.route('/chart_data/', methods=['POST'])
 def chart_data():
@@ -66,6 +75,6 @@ def chart_data_amperage():
     measure_list = Measure.query.all()
     response = []
     for item in measure_list:
-        response.append({'time': item.date.strftime('%Y-%m-%d %H:%M:%S'), 'med': item.currentMed, 'min': item.currentMin, 'max': item.currentaMAx})
+        response.append({'time': item.date.strftime('%Y-%m-%d %H:%M:%S'), 'med': item.currentMed, 'min': item.currentMin, 'max': item.currentMAx})
 
     return jsonify(response)
