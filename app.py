@@ -60,11 +60,15 @@ def group():
 
 @app.route('/chart_data/', methods=['POST'])
 def chart_data():
-    new_mesure = Measure(voltageMed=random.randint(0, 100), currentMed=random.randint(0, 100), voltageMAx=random.randint(0, 100), currentMAx=random.randint(0, 100), voltageMin=random.randint(0, 100), currentMin=random.randint(0, 100))
-    db.session.add(new_mesure)
-    db.session.commit()
-    return jsonify(request.get_json())
-
+    body = dict(request.get_json())
+    new_mesure = Measure(voltageMed=body['voltage']['med'], currentMed=body['current']['med'], voltageMAx=body['voltage']['max'], currentMAx=body['current']['max'], voltageMin=body['voltage']['min'], currentMin=body['current']['min'])
+    try:
+        db.session.add(new_mesure)
+        db.session.commit()
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({'error': str(e)}), 500
+    return jsonify({'success': 'ok'}), 201
 @app.route('/chart_data/voltage')
 def chart_data_voltage():
     measure_list = Measure.query.all()
