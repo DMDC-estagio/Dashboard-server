@@ -1,13 +1,20 @@
 {% extends "/index.html" %}
 
-{% from "dashboard/components/info-block.jinja" import mesure_block with context %}
+{% from "dashboard/components/group-int.jinja" import group_integrator with context %}
 
 {% block stylesheets %}
-<link rel="stylesheet" href="{{ url_for('static', filename='./mesure_block/block.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='./integrator_block/integrator.css') }}">
 {% endblock %}
 
 {% block content %}
 
 <h1>Grupo de estágio</h1>
+
+<div class="group">
+  {{ group_integrator('https://yt3.ggpht.com/ytc/AKedOLQUQewMtBXCQ4-Sh-6It2Qgol6hQHBaVJugvEINMQ=s900-c-k-c0x00ffffff-no-rj', 'Prof. Clóvis Petry', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam malesuada lectus tortor, eu elementum eros tincidunt quis. Vestibulum vel leo ullamcorper, mollis nisi nec, sodales augue. Fusce mollis diam eu nisi consectetur, finibus tempor augue malesuada.') }}
+  {{ group_integrator('https://avatars.githubusercontent.com/u/43057423?v=4', 'Lucas Aguiar', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam malesuada lectus tortor, eu elementum eros tincidunt quis. Vestibulum vel leo ullamcorper, mollis nisi nec, sodales augue. Fusce mollis diam eu nisi consectetur, finibus tempor augue malesuada.') }}
+  {{ group_integrator('https://avatars.githubusercontent.com/u/100883209?v=4', 'Davi Orlandi', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam malesuada lectus tortor, eu elementum eros tincidunt quis. Vestibulum vel leo ullamcorper, mollis nisi nec, sodales augue. Fusce mollis diam eu nisi consectetur, finibus tempor augue malesuada.') }}
+  {{ group_integrator('https://avatars.githubusercontent.com/u/99911394?v=4', 'Gabriel Gonçalves', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam malesuada lectus tortor, eu elementum eros tincidunt quis. Vestibulum vel leo ullamcorper, mollis nisi nec, sodales augue. Fusce mollis diam eu nisi consectetur, finibus tempor augue malesuada.') }}
+</div>
 
 {% endblock %}

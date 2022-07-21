@@ -1,0 +1,30 @@
+.group {
+  margin-top: 25px;
+}
+
+.group-integrator {
+  display: flex;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  align-items: center;
+}
+
+.group-integrator:last-child {
+  border-bottom: none;
+}
+
+.group-integrator img {
+  width: 150px;
+  height: 150px;
+  border-radius: 100%;
+}
+
+.group-integrator div {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  width: 100%;
+  padding: 50px 0px;
+  margin-left: 50px;
+  box-sizing: border-box;
+}
