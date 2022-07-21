@@ -1,0 +1,13 @@
+{% extends "/index.html" %}
+
+{% from "dashboard/components/info-block.jinja" import mesure_block with context %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ url_for('static', filename='./mesure_block/block.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<h1>Grupo de estágio</h1>
+
+{% endblock %}
