@@ -1,6 +1,6 @@
 {% extends "/index.html" %}
 
-{% from "dashboard/info-block.jinja" import mesure_block with context %}
+{% from "dashboard/components/info-block.jinja" import mesure_block with context %}
 
 {% block stylesheets %}
 <link rel="stylesheet" href="{{ url_for('static', filename='./mesure_block/block.css') }}">
