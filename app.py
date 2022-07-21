@@ -17,7 +17,7 @@ db = SQLAlchemy(app)
 
 class Measure(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    date = db.Column(db.DateTime, default=datetime.utcnow)
+    date = db.Column(db.DateTime, default=datetime.now(timezone('America/Sao_Paulo')))
     voltageMed = db.Column(db.Float)
     currentMed = db.Column(db.Float)
     voltageMAx = db.Column(db.Float)
