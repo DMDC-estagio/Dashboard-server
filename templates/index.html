@@ -27,7 +27,6 @@
   {% block scripts %}
   {% endblock %}
   <script>
-    console.log("Hello, wolrd!")
     let items = document.querySelectorAll('#navigator > a')
     items.forEach((e) => { e.innerHTML.includes(document.title) ? e.classList.toggle('selected') : null })
   </script>
