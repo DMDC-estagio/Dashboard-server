@@ -42,8 +42,12 @@ def index():
         med_voltage += item.voltageMed
         med_current += item.currentMed
         # print(item.date.replace(tzinfo=timezone('America/Sao_Paulo')), item.date)
-    med_voltage /= len(measure_list)
-    med_current /= len(measure_list)
+    try:
+        med_voltage /= len(measure_list)
+        med_current /= len(measure_list)
+    except:
+        med_voltage = 0
+        med_current = 0
 
     return render_template('./dashboard/index.html', data = {'title': 'Início', 'tensao': response, 'tensao_max': f"{round(max_voltage,1)}".split('.'), 'corrente_max': f"{round(max_current,1)}".split('.'), 'tensao_med' : f"{round(med_voltage,1)}".split("."), "corrente_med" : f"{round(med_current,1)}".split(".")})
 
