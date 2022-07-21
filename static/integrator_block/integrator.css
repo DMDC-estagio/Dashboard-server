@@ -28,3 +28,21 @@
   margin-left: 50px;
   box-sizing: border-box;
 }
+
+
+@media screen and (max-width: 700px) {
+  .group-integrator img {
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+  }
+
+  .group-integrator {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .group-integrator div{
+    margin: 0;
+    padding-top: 10px;
+  }
+}
