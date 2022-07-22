@@ -1,8 +1,5 @@
 import os
 
-from datetime import datetime
-from pytz import timezone
-
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
