@@ -1,4 +1,7 @@
-from app import db, timezone, datetime
+from app import db
+
+from pytz import timezone
+from datetime import datetime
 
 class Measure(db.Model):
     id = db.Column(db.Integer, primary_key=True)

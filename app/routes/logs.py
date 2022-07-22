@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template
-from app import timezone
+from pytz import timezone
 from app.models.measure import Measure
 
 logsRouter = Blueprint('logs', __name__)

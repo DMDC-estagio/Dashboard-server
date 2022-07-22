@@ -1,6 +1,9 @@
 from flask import Blueprint, render_template, request, jsonify
-from app import timezone, datetime, db
+from app import db
 from app.models.measure import Measure
+
+from pytz import timezone
+from datetime import datetime
 
 chartRouter = Blueprint('chartData', __name__)
 
