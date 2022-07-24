@@ -1,11 +1,12 @@
 
-{% macro group_integrator(img, name, bio) -%}
+{% macro group_integrator(img, name, bio, gthbUrl ,gthbProfile) %}-%}
 
   <div class="group-integrator">
     <img src={{ img }} alt="integrator image">
     <div>
       <h2>{{ name }}</h2>
       <p>{{ bio }}</p>
+      <a href="{{ gthbUrl }}">{{ gthbProfile }}</a>
     </div>
   </div>
 
