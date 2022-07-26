@@ -91,6 +91,7 @@
   box-sizing: border-box;
   padding: 25px;
   align-items: center;
+  font-size: 14px;
 }
 
 .pagination .pagination-nav {
@@ -101,7 +102,7 @@
 }
 
 .pagination .pagination-nav .arrows span {
-  font-size: 25px;
+  font-size: 20px !important;
   color: #336380;
   cursor: pointer;
 }
