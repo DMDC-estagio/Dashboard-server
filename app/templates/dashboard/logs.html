@@ -1,6 +1,6 @@
 {% extends "/index.html" %}
 
-{% from "dashboard/components/log.jinja" import log_block with context %}
+{% from "dashboard/components/log.html.jinja" import log_block with context %}
 
 {% block stylesheets %}
 <link rel="stylesheet" href="{{ url_for('static', filename='./measure_log/log.css') }}">
