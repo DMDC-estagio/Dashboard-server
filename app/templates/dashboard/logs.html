@@ -9,22 +9,31 @@
 {% block content %}
 <h1>Logs do sistema.</h1>
 
-<div class="measure-log measure_header">
-  <h3 id="list_header">Data de medição</h3>
-  <ul>
-    <li>MAX</li>
-    <li>MED</li>
-    <li>MIN</li>
-  </ul>
-  <ul>
-    <li>MAX</li>
-    <li>MED</li>
-    <li>MIN</li>
-  </ul>
+<div class="measure-block measure_header">
+  <div class="measure-log">
+    <h3 id="list_header">Data de medição</h3>
+    <ul>
+      <li>MAX</li>
+      <li>MED</li>
+      <li>MIN</li>
+    </ul>
+    <ul>
+      <li>MAX</li>
+      <li>MED</li>
+      <li>MIN</li>
+    </ul>
+    <span class="material-symbols-outlined" style="opacity: 0;">
+      expand_more
+     </span>
+  </div>
 </div>
 {% for log in data.logs %}
   {{ log_block(log) }}
 {% endfor %}
 
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='./measure_log/expand_log.js') }}"></script>
 {% endblock %}
 
