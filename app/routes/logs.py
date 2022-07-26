@@ -13,7 +13,9 @@ def logs():
     response = [x.__dict__ for x in paginated['items']]
     for item in response: item['date'] = item['date'].replace(tzinfo=timezone('America/Sao_Paulo')).strftime('%Y-%m-%d %H:%M:%S')
 
-    return render_template('./dashboard/logs.html', data = {'title': 'Logs', 'logs': response, 'page': paginated['page'], 'total_pages': paginated['total_pages'], 'items_per_page': len(response)})
+    data = {'title': 'Logs', 'logs': response, 'page': paginated['page'], 'total_pages': paginated['total_pages'], 'items_per_page': len(response)}
+
+    return render_template('./dashboard/logs.html', data = data )
 
 def change_timezone(measure_list):
     for measure in measure_list:

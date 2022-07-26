@@ -4,4 +4,5 @@ groupRouter = Blueprint('group', __name__)
 
 @groupRouter.route('/grupo')
 def group():
-    return render_template('./dashboard/group.html', data = {'title': 'Grupo'})
+    data = {'title': 'Grupo'}
+    return render_template('./dashboard/group.html', data = data)
