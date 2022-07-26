@@ -84,6 +84,33 @@
   color: #336380;
 }
 
+.pagination {
+  color: #336380;
+  display: flex;
+  justify-content: space-around;
+  box-sizing: border-box;
+  padding: 25px;
+  align-items: center;
+}
+
+.pagination .pagination-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.pagination .pagination-nav .arrows span {
+  font-size: 25px;
+  color: #336380;
+  cursor: pointer;
+}
+
+.pagination .pagination-nav .arrows a {
+  text-decoration: none;
+  color: #336380;
+}
+
 @media screen and (max-width: 700px) {
   .measure-block ul {
     flex-direction: column;

@@ -31,9 +31,30 @@
   {{ log_block(log) }}
 {% endfor %}
 
+<div class="pagination" >
+  <p>Total de Registros: {{ data.items_per_page }}</p>
+  <p id="total_pages" hidden>{{ data.total_pages }}</p>
+  <p id="current_page" hidden>{{ data.page }}</p>
+  <div class="pagination-nav">
+    <div class="arrows">
+      <a href="/logs?page={{ data.page - 1 }}" id="previous_page">
+        <span class="material-symbols-outlined">
+          arrow_back
+        </span>
+      </a>
+      <a href="/logs?page={{ data.page + 1 }}" id="next_page">
+        <span class="material-symbols-outlined">
+            arrow_forward
+        </span>
+      </a>
+    </div>
+    <p>{{ data.page }} de {{ data.total_pages }}</p>
+  </div>
+</div>
 {% endblock %}
 
 {% block scripts %}
 <script src="{{ url_for('static', filename='./measure_log/expand_log.js') }}"></script>
+<script src="{{ url_for('static', filename='./measure_log/pagination.js') }}"></script>
 {% endblock %}
 

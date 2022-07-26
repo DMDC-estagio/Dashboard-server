@@ -33,6 +33,13 @@ main {
   padding: 2% 10%;
 }
 
+.isDisabled {
+  color: currentColor;
+  cursor: not-allowed;
+  opacity: 0.5;
+  text-decoration: none;
+}
+
 @media screen and (max-width: 700px) {
   body {
     padding-left: 85px;
