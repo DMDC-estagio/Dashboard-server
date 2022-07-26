@@ -1,6 +1,6 @@
 {% extends "/index.html" %}
 
-{% from "dashboard/components/group-int.jinja" import group_integrator with context %}
+{% from "dashboard/components/group-int.html.jinja" import group_integrator with context %}
 
 {% block stylesheets %}
 <link rel="stylesheet" href="{{ url_for('static', filename='./integrator_block/integrator.css') }}">
