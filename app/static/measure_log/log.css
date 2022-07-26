@@ -4,11 +4,9 @@
   margin: 0;
   font-size: 12px;
   font-family: monospace;
-  /* display: flex;
-  align-items: center;
-  justify-content: space-between; */
   padding: 10px;
   border-bottom: 1px solid #ccc;
+  color: #336380;
 }
 
 .measure-block h3 {
@@ -50,12 +48,26 @@
   overflow: hidden;
   box-sizing: border-box;
   padding: 0px 10px;
-  transition: max-height 0.2s ease-out;
 }
 
 .measure-block.expanded .measure-details {
   height: 100%;
   padding: 10px;
+  transition: 0.2s ease-out;
+}
+
+.measure-block.expanded .measure-header-details {
+  display: none;
+}
+
+.measure-block .measure-header-title {
+  display: none;
+}
+
+.measure-block.expanded .measure-header-title {
+  display: block;
+  width: 150px;
+  text-align: center;
 }
 
 .measure-log {
