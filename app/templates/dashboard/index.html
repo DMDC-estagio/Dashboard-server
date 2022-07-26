@@ -7,6 +7,7 @@
 {% endblock %}
 
 {% block content %}
+<h1 style="margin-bottom: 15px;">Visão geral</h1>
 <div id="mesure-blocks">
   {{ mesure_block('Tensão média', data.tensao_med[0], data.tensao_med[1], 'V') }}
   {{ mesure_block('Tensão máxima', data.tensao_max[0], data.tensao_max[1], 'V', 'true') }}
