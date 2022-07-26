@@ -1,18 +1,26 @@
 
 {% macro log_block(measure) -%}
 
-  <div class="measure-log">
-    <h3>{{ measure.date }}</h3>
-    <ul>
-      <li>{{ measure.voltageMAx }}V</li>
-      <li>{{ measure.voltageMed }}V</li>
-      <li>{{ measure.voltageMin }}V</li>
-    </ul>
-    <ul>
-      <li>{{ measure.currentMAx }}A</li>
-      <li>{{ measure.currentMed }}A</li>
-      <li>{{ measure.currentMin }}A</li>
-    </ul>
+  <div class="measure-block" onclick="expand_log(this)">
+    <div class="measure-log">
+      <h3>{{ measure.date }}</h3>
+      <ul>
+        <li>{{ measure.voltageMAx }}V</li>
+        <li>{{ measure.voltageMed }}V</li>
+        <li>{{ measure.voltageMin }}V</li>
+      </ul>
+      <ul>
+        <li>{{ measure.currentMAx }}A</li>
+        <li>{{ measure.currentMed }}A</li>
+        <li>{{ measure.currentMin }}A</li>
+      </ul>
+      <span class="material-symbols-outlined">
+       expand_more
+      </span>
+    </div>
+    <div class="measure-details">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tincidunt maximus posuere. Donec pulvinar ullamcorper quam, et volutpat diam suscipit rutrum. Curabitur mollis, erat id elementum egestas, ligula mi vulputate arcu, a pretium erat dui quis tellus. Nulla ac porttitor quam, vel fringilla arcu.</p>
+    </div>
   </div>
 
 {%- endmacro %}
