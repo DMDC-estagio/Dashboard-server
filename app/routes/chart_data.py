@@ -1,4 +1,5 @@
-from flask import Blueprint, render_template, request, jsonify
+import json
+from flask import Blueprint, request
 from app import db
 from app.models.measure import Measure
 
@@ -19,9 +20,9 @@ def chart_data():
         db.session.commit()
     except Exception as e:
         db.session.rollback()
-        return jsonify({'Status': 'BAD REQUEST','error': str(e)}), 400
+        return json.dumps({'Status': 'BAD REQUEST','error': str(e)}), 400
 
-    return jsonify({'Status': 'OK', 'Status': 'Measurement created with sucessfull'}), 201
+    return json.dumps({'Status': 'OK', 'Status': 'Measurement created with sucessfull'}), 201
 
 def verifyParams(body):
     if 'voltage' not in body or 'current' not in body:
