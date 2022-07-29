@@ -40,6 +40,20 @@ main {
   text-decoration: none;
 }
 
+h1 {
+  color: #273444;
+}
+
+h2 {
+  color: #2e3d50;
+}
+
+p {
+  color: #33445b;
+}
+
+
+
 @media screen and (max-width: 700px) {
   body {
     padding-left: 85px;
