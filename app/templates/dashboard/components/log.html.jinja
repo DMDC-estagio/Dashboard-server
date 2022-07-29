@@ -1,3 +1,14 @@
+{% macro voltageFlags(voltage) -%}
+  {% if voltage > 230 or voltage < 191 %}
+    {% if voltage > 230 %}
+      <p style="color:red;"> TENSÃO CRÍTICA - ALTA </p>
+    {% else %}
+      <p style="color:red;"> TENSÃO CRÍTICA - BAIXA </p>
+    {% endif %}
+  {% else %}
+  <p style="color:green;"> TENSÃO NORMAL </p>
+  {% endif %}
+{%- endmacro %}
 
 {% macro log_block(measure) -%}
 
@@ -21,6 +32,7 @@
       </span>
     </div>
     <div class="measure-details">
+      {{ voltageFlags(measure.voltageMed) }}
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tincidunt maximus posuere. Donec pulvinar ullamcorper quam, et volutpat diam suscipit rutrum. Curabitur mollis, erat id elementum egestas, ligula mi vulputate arcu, a pretium erat dui quis tellus. Nulla ac porttitor quam, vel fringilla arcu.</p>
     </div>
   </div>
