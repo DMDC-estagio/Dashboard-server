@@ -12,16 +12,27 @@ def logs():
     query = Measure.query.order_by(Measure.date.desc())
     paginated = paginate(query, per_page = 15)
 
-    response = [x.__dict__ for x in paginated['items']]
-    for item in response:
-        del item['_sa_instance_state']
-        item['date'] = item['date'].replace(tzinfo=timezone('America/Sao_Paulo')).strftime('%Y-%m-%d %H:%M:%S')
-
-    data = {'page': paginated['page'], 'total_pages': paginated['total_pages'], 'items_per_page': len(response), 'logs': response}
+    response = serializeData([x.__dict__ for x in paginated['items']])
+    # for item in response: del item['_sa_instance_state']
+    print(response)
+    data = {'page': paginated['page'], 'total_pages': paginated['total_pages'], 'total_items': len(response), 'logs': response}
 
     return json.dumps(data), 200
 
-def change_timezone(measure_list):
+def serializeData(measure_list):
     for measure in measure_list:
-        measure['date'] = measure['date'].replace(tzinfo=timezone('America/Sao_Paulo'))
+        measure_list[measure_list.index(measure)] = {
+            'id': measure['id'],
+            'voltage': {
+                'max': measure['voltageMAx'],
+                'med': measure['voltageMed'],
+                'min': measure['voltageMin']
+            },
+            'current': {
+                'max': measure['currentMAx'],
+                'med': measure['currentMed'],
+                'min': measure['currentMin']
+            },
+            'date': measure['date'].strftime('%Y-%m-%d %H:%M:%S')
+        }
     return measure_list
